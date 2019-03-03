@@ -1,0 +1,17 @@
+---
+- hosts: raspberrypi
+  remote_user: pi
+  tasks:
+      - name: LAMP server installation
+        apt: 'pkg={{item}} state=present'
+        with_items:
+            - apache2
+            - mysql
+            - 
+      - name: ensure httpd is running
+        systemd:
+            name: apache2
+            state: started
+        become: yes
+        become_method: sudo
+      - debug: var=results
