@@ -1,0 +1,20 @@
+---
+- hosts: raspberrypi
+  remote_user: pi
+  tasks:
+      - name: ensure httpd is running
+        systemd:
+            name: apache2
+            state: started
+        become: yes
+        become_method: sudo
+
+      - name: ensure httpd is running
+        systemd:
+            name: mysql
+            state: started
+        become: yes
+        become_method: sudo
+
+      - debug: var=results
+

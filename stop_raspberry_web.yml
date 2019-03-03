@@ -8,3 +8,10 @@
           state: stopped
       become: yes
       become_method: sudo
+
+    - name: stop mysql-server
+      systemd:
+        name: mysqld
+        state: stopped
+      become: yes
+      become_method: sudo
