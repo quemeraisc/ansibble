@@ -2,12 +2,32 @@
 - hosts: raspberrypi
   remote_user: pi
   tasks:
-      - name: LAMP server installation
-        apt: 'pkg={{item}} state=present'
-        with_items:
+      - name: LAMP server installation v2
+        apt: 
+          name:
             - apache2
-            - mysql
-            - 
+            - mysql-common
+            - mysql-server
+            - php
+            - php-mysql
+          state: present
+        become: yes
+        become_method: sudo
+
+        #- name: DEPRECATED LAMP server installation
+        #apt: 'pkg={{item}} state=present'
+        #with_items:
+        #- apache2
+        #- php
+
+      - name: Correct ownership
+        file:
+          path: /var/www/html
+          state: directory
+          owner: pi
+          group: www-data
+          mode: 0770
+
       - name: ensure httpd is running
         systemd:
             name: apache2
