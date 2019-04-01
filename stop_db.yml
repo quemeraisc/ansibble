@@ -1,0 +1,10 @@
+---
+- hosts: raspberrypi
+  remote_user: pi
+  tasks:
+    - name: stop mysql-server
+      systemd:
+        name: mysqld
+        state: stopped
+      become: yes
+      become_method: sudo

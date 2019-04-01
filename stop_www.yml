@@ -1,0 +1,10 @@
+---
+- hosts: raspberrypi
+  remote_user: pi
+  tasks:
+    - name: stop httpd
+      systemd:
+          name: apache2
+          state: stopped
+      become: yes
+      become_method: sudo
