@@ -2,11 +2,11 @@
 pie3:
   hosts:
     ubuntu:
-  vars:
-    ansible_user: ubuntu
+      ansible_user: ubuntu
+    redAndWhite:
+      ansible_user: pi
 pie2:
   hosts:
     uncovered:
-    redAndWhite:
   vars:
     ansible_user: pi
