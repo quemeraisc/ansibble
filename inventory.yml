@@ -1,0 +1,12 @@
+---
+pie3:
+  hosts:
+    ubuntu:
+  vars:
+    ansible_user: ubuntu
+pie2:
+  hosts:
+    uncovered:
+    redAndWhite:
+  vars:
+    ansible_user: pi

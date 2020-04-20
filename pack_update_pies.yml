@@ -1,0 +1,25 @@
+- hosts: all
+  order: sorted
+  gather_facts: False
+  tasks:
+    - name: APT UPDATE
+      apt:
+        update_cache: yes
+      become: yes
+      become_method: sudo
+      register: res
+
+    - name: PRINT
+      debug:
+        var: res
+        # inventory_hostname
+
+    - name: APT UPGRADE
+      apt:
+        upgrade: yes
+      when: res.cache_updated == true
+      register: res2
+
+    - name: PRINT
+      debug:
+        var: res2

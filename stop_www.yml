@@ -1,5 +1,5 @@
 ---
-- hosts: raspberrypi
+- hosts: uncovered
   remote_user: pi
   tasks:
     - name: stop httpd
