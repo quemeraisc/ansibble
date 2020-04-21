@@ -1,0 +1,7 @@
+---
+- name: Install mysql
+  apt:
+    name: [ 'mysql-common', 'mysql-server' ]
+    state: present
+  become: yes
+  become_method: sudo

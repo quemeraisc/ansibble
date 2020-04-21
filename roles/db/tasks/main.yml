@@ -1,0 +1,3 @@
+---
+- name: mysql
+  import_tasks: mysql.yml
