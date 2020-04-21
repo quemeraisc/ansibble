@@ -6,6 +6,8 @@
 
 ** Stop the web server
 
+test
 ** Stop mysql
 
 ** Check cpu/mem usage
+ 
